@@ -112,7 +112,7 @@ class _PageState extends State<DetailViewPager> {
                   margin: const EdgeInsets.fromLTRB(0, 0, 15.0, 10.0),
                   child: new Flex(
                     direction: Axis.horizontal,
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.min,//宽度wrap？
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       Image(
