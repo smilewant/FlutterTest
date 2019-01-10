@@ -42,7 +42,11 @@ flutter:
   assets:
     - assets/holiday_hs_page.png
     - assets/holiday_blue_diamond.png
-    - assets/holiday_hs_page.png
+    - assets/holiday_group_arrow_with_gap.png
+    - assets/holiday_hs_base_top_icon.png
+    - assets/ensure_bg.png
+    - assets/detail_presell_icon.png
+    - assets/xiaoyao_mark.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

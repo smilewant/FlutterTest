@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/RealRichText.dart';
+import 'package:flutter_app/common/view/RealRichText.dart';
+import 'package:flutter_app/detail/DetailFunctionView.dart';
 import 'package:flutter_app/detail/DetailViewPager.dart';
 
-class DetailInnerView extends StatelessWidget {
+class DetailInnerView extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _InnerView();
+  }
+}
+
+class _InnerView extends State<DetailInnerView> {
   List<String> listImages;
 
   Widget build(BuildContext context) {
-
     return Column(
       children: <Widget>[
         DetailViewPager(addImage()),
-
         new Container(
           margin: const EdgeInsets.fromLTRB(10, 12.0, 10, 0),
           width: double.maxFinite,
@@ -40,24 +46,22 @@ class DetailInnerView extends StatelessWidget {
         RealRichText([
           TextSpan(
             text:
-            '苏州雅杰大酒店（吴中店）1晚＋双人自助早餐＋景点多选1（四季悦水游村／华谊兄弟电影世界／夜游网师园／夜游金鸡湖等），免费停车及免费wifi',
+                '苏州雅杰大酒店（吴中店）1晚＋双人自助早餐＋景点多选1（四季悦水游村／华谊兄弟电影世界／夜游网师园／夜游金鸡湖等），免费停车及免费wifi',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16.0,
               color: Color(0xff333333),
             ),
           ),
-
           ImageSpan(
-            AssetImage('assets/holiday_blue_diamond.png'),//使用图片记得在pubspec.yaml中添加，否则不显示
+            AssetImage('assets/holiday_blue_diamond.png'),
+            //使用图片记得在pubspec.yaml中添加，否则不显示
             imageWidth: 18,
             imageHeight: 16,
             margin: const EdgeInsets.fromLTRB(2.0, 0, 2.0, 0),
           ),
-
         ]),
-
-
+        DetailFunctionView(),
         GestureDetector(
           onTap: () {
             print('scroll = null');
