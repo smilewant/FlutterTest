@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/common/view/PriceText.dart';
 import 'package:flutter_app/common/view/RealRichText.dart';
 import 'package:flutter_app/detail/DetailFunctionView.dart';
 import 'package:flutter_app/detail/DetailViewPager.dart';
@@ -62,6 +63,8 @@ class _InnerView extends State<DetailInnerView> {
           ),
         ]),
         DetailFunctionView(),
+        Padding(padding: const EdgeInsets.all(10.0),
+        child: PriceText(0xffd03775, 14.0),),
         GestureDetector(
           onTap: () {
             print('scroll = null');
