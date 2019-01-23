@@ -19,10 +19,12 @@ class _InnerView extends State<DetailInnerView> {
       children: <Widget>[
         DetailViewPager(addImage()),
         new Container(
-          margin: const EdgeInsets.fromLTRB(10, 12.0, 10, 0),
+          padding: const EdgeInsets.fromLTRB(10, 12.0, 10, 0),
+          color: Colors.white,
           width: double.maxFinite,
           child: test(),
-        )
+        ),
+        calendar(),
       ],
     );
   }
@@ -63,8 +65,12 @@ class _InnerView extends State<DetailInnerView> {
           ),
         ]),
         DetailFunctionView(),
-        Padding(padding: const EdgeInsets.all(10.0),
-        child: PriceText(0xffd03775, 14.0),),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: PriceText(0xffd03775, 14.0),
+        ),
+
+
         GestureDetector(
           onTap: () {
             print('scroll = null');
@@ -80,62 +86,68 @@ class _InnerView extends State<DetailInnerView> {
           color: Colors.blue,
           child: new Text('this is a test for width '),
         ),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text(
-          "Aasdfafafsafafasfwefdsfd jhn fghng",
-        ),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
-        new Text("Aasdfafafsafafasfwefdsfd jhn fghng"),
       ],
+    );
+  }
+
+  Widget calendar(){
+    return Container(
+      color: Colors.white,
+      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+      padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0),
+      child: Column(
+        children: <Widget>[
+          Stack(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.topLeft,
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      '选择出游人数',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        color: Color(0xff333333),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(3.0, 0, 0, 0),
+                      child: Text(
+                        '1份 （每份含成人2人）',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          color: Color(0xff666666),
+                        ),
+                      ),
+                    )
+
+                  ],
+                )
+              ),
+              Align(
+                alignment: Alignment.topRight,
+                child: RealRichText([
+                  TextSpan(
+                    text:'更改',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: Color(0xff666666),
+                    ),
+                  ),
+                  ImageSpan(
+                    AssetImage('assets/holiday_group_arrow_with_gap.png'), //使用图片记得在pubspec.yaml中添加，否则不显示
+                    imageWidth: 12,
+                    imageHeight: 12,
+                    margin: const EdgeInsets.fromLTRB(3.0, 0, 0, 0),
+                  ),
+                ]),
+              )
+            ],
+          ),
+
+
+        ],
+      ),
     );
   }
 }
