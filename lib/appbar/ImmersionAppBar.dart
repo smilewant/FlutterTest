@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/appbar/BarEditText.dart';
 
 class ImmersionAppbar extends StatefulWidget {
   ImmersionAppbar(this.colors);
@@ -70,19 +71,21 @@ class ImmersionState extends State<ImmersionAppbar> {
                 onPressed: null,
               ),
               new Expanded(
-                  child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    widget.colors = 0xffd30775;
-                  });
-                },
-                child: new Text(
-                  'Example title',
-                  style:
-                      new TextStyle(color: Color(widget.titleColor), fontSize: 20.0),
-                  textAlign: TextAlign.center,
-                ),
-              )),
+//                  child: GestureDetector(
+//                onTap: () {
+//                  setState(() {
+//                    widget.colors = 0xffd30775;
+//                  });
+//                },
+//                child: new Text(
+//                  'Example title',
+//                  style:
+//                      new TextStyle(color: Color(widget.titleColor), fontSize: 20.0),
+//                  textAlign: TextAlign.center,
+//                ),
+//              ),
+              child: BarEditText(),
+              ),
               new IconButton(
                 icon: new Icon(Icons.menu),
                 tooltip: 'navigation menu',

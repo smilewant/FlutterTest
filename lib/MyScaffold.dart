@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/detail/DetailInnerView.dart';
-import 'package:flutter_app/detail/ImmersionAppbar.dart';
+import 'package:flutter_app/appbar/ImmersionAppBar.dart';
 
 class MyScaffold extends StatelessWidget {
   ImmersionAppbar appbar = new ImmersionAppbar(0x00d30775);
