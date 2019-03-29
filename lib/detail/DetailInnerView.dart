@@ -3,6 +3,7 @@ import 'package:flutter_app/common/view/PriceText.dart';
 import 'package:flutter_app/common/view/RealRichText.dart';
 import 'package:flutter_app/detail/DetailFunctionView.dart';
 import 'package:flutter_app/detail/DetailViewPager.dart';
+import 'package:flutter_app/log.dart';
 
 class DetailInnerView extends StatefulWidget {
   @override
@@ -74,6 +75,7 @@ class _InnerView extends State<DetailInnerView> {
         GestureDetector(
           onTap: () {
             print('scroll = null');
+            Log.net();
           },
           child: new Text(
             'Example title',
