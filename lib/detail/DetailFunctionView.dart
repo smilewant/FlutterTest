@@ -68,23 +68,42 @@ class _FunctionView extends State<DetailFunctionView> {
                         ),
                     itemBuilder: (BuildContext context, int index) {
                       return new GridTile(
-                        child: RealRichText([
-                          ImageSpan(
-                            AssetImage('assets/xiaoyao_mark.png'), //使用图片记得在pubspec.yaml中添加，否则不显示
-                            imageWidth: 12,
-                            imageHeight: 12,
-                            margin: const EdgeInsets.fromLTRB(0, 0, 3.0, 0),
-                          ),
-                          TextSpan(
-                            text:'${items[index]}',
-                            style: TextStyle(
-                              fontSize: 12.0,
-                              color: Color(0xff666666),
+//                        child: RealRichText([
+//                          ImageSpan(
+//                            AssetImage('assets/xiaoyao_mark.png'), //使用图片记得在pubspec.yaml中添加，否则不显示
+//                            imageWidth: 12,
+//                            imageHeight: 12,
+//                            margin: const EdgeInsets.fromLTRB(0, 0, 0.0, 0),
+//                          ),
+//                          TextSpan(
+//                            text:'${items[index]}',
+//                            style: TextStyle(
+//                              fontSize: 12.0,
+//                              color: Color(0xff666666),
+//                            ),
+//                          ),
+//
+//                        ]),
+                        child: Row(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 2.0, 0),
+                              child: Image(
+                                width: 12.0,
+                                height: 12.0,
+                                image: AssetImage('assets/xiaoyao_mark.png'),
+                              ),
                             ),
-                          ),
-
-                        ]),
-
+                            Text(
+                              '${items[index]}',
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                wordSpacing: 2.0,
+                                color: Color(0xff666666),
+                              ),
+                            ),
+                          ],
+                        ),
                       );
                     },
                   ),
