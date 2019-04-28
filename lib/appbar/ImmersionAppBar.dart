@@ -6,15 +6,11 @@ import 'package:flutter_app/appbar/BarEditText.dart';
 class ImmersionAppbar extends StatefulWidget {
   ImmersionAppbar(this.colors);
 
-  int colors;
-  int titleColor = 0xffffffff;
-  ImmersionState _state = new ImmersionState();
+  final int colors;
+  final ImmersionState _state = new ImmersionState();
 
   void setC(offset) {
-    _state.setColor();
-    colors = colorChange(offset, 0x00d30775);
-    titleColor = colorChange(offset, 0x00ffffff);
-
+    _state.setColor(offset);
   }
 
   @override
@@ -25,39 +21,45 @@ class ImmersionAppbar extends StatefulWidget {
   //颜色渐变
   int colorChange(double offset, int finalColor) {
     int alpha = offset * 255 ~/ 200;
-    print('offset = ${offset}');
-    print('alpha = ${alpha}');
-    if(offset < 200) {
-      for (int i = 31; i >= 0; i--) {
-        //int to byte
-        alpha >> i;
-      }
-    } else {
+    print('offset = $offset');
+    print('alpha = $alpha');
+    if (offset > 200) {
       alpha = 255;
     }
-    alpha = alpha << 24;
-    alpha = alpha | finalColor ;
+    alpha = alpha << 24; //int to byte
+    alpha = alpha | finalColor;
 
     return alpha;
-
   }
 }
 
 class ImmersionState extends State<ImmersionAppbar> {
-  void setColor() {
-
+  double offset = 0;
+  void setColor(offset) {
     setState(() {
-//      widget.colors = color;
+      this.offset = offset;
     });
+  }
+
+  int colorChange(double offset, int finalColor) {
+    int alpha = offset * 255 ~/ 200;
+    print('offset = $offset');
+    print('alpha = $alpha');
+    if (offset > 200) {
+      alpha = 255;
+    }
+    alpha = alpha << 24; //int to byte
+    alpha = alpha | finalColor;
+
+    return alpha;
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Container(
       height:
           MediaQueryData.fromWindow(window).padding.top + 56, //获取Android状态栏高度
-      color: Color(widget.colors),
+      color: Color(colorChange(offset, 0x00d30775)),
       child: new Column(
         children: <Widget>[
           new Padding(
@@ -71,20 +73,7 @@ class ImmersionState extends State<ImmersionAppbar> {
                 onPressed: null,
               ),
               new Expanded(
-//                  child: GestureDetector(
-//                onTap: () {
-//                  setState(() {
-//                    widget.colors = 0xffd30775;
-//                  });
-//                },
-//                child: new Text(
-//                  'Example title',
-//                  style:
-//                      new TextStyle(color: Color(widget.titleColor), fontSize: 20.0),
-//                  textAlign: TextAlign.center,
-//                ),
-//              ),
-              child: BarEditText(),
+                child: BarEditText(),
               ),
               new IconButton(
                 icon: new Icon(Icons.menu),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/common/foundation/ColorUtils.dart';
 
 class BarEditText extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class BarEditState extends State<BarEditText> {
   Widget build(BuildContext context) {
     return new Container(
         decoration: new BoxDecoration(
-          color: Color(0xffffffff),
+          color: ColorUtils.color_ffffff,
           borderRadius: new BorderRadius.all(new Radius.circular(20.0)),
         ),
         padding: const EdgeInsets.fromLTRB(12.0, 8.0, 12.0, 8.0),
@@ -21,7 +22,7 @@ class BarEditState extends State<BarEditText> {
             Text(
               '上海',
               style: TextStyle(
-                color: Color(0xff333333),
+                color: ColorUtils.color_333333,
                 fontSize: 12.0,
               ),
             ),
@@ -31,12 +32,12 @@ class BarEditState extends State<BarEditText> {
               image: AssetImage('assets/comm_bottom_down_arrow.png'),
             ),
             Divider(
-              color: Color(0xff999999),
+              color: ColorUtils.color_999999,
             ),
             Text(
               '输入目的地、关键词',
               style: TextStyle(
-                color: Color(0xffbbbbbb),
+                color: ColorUtils.color_bbbbbb,
                 fontSize: 12.0,
               ),
             ),
