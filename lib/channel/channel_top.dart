@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/channel/LimitTimeTitle.dart';
+import 'package:flutter_app/common/foundation/ColorUtils.dart';
 import 'package:flutter_app/common/foundation/ScreenUtil.dart';
 
 class ChannelTop extends StatefulWidget {
@@ -9,6 +11,8 @@ class ChannelTop extends StatefulWidget {
 }
 
 class _ChannelView extends State<ChannelTop> {
+  int item = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,114 +29,85 @@ class _ChannelView extends State<ChannelTop> {
             image: AssetImage('assets/groupon_bar_bg.png'),
           ),
           Align(
-//            alignment: FractionalOffset(2, 2),
+            alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: Column(
                 children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        '限时抢购',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
-                      ),
-//                    Expanded(child: Text('每天十点更新')),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-                      ),
-                      Text(
-                        '每天10点更新',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                        ),
-                      ),
-                      Expanded(
-                        child: Text(
-                          '',
-                        ),
-                      ),
-                      Text(
-                        '距结束',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                      ),
-                      Container(
-                        decoration: new BoxDecoration(
-                          color: Color(0xffffffff),
-                          borderRadius:
-                              new BorderRadius.all(new Radius.circular(2.0)),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          '11',
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
-                        child: Text(
-                          ':',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                  LimitTimeTitle(),
+                  Padding(
+                    padding: EdgeInsets.only(top: 5),
+                  ),
+                  Container(
+                    decoration: new BoxDecoration(
+                      color: Color(0x33d30775),
+                      borderRadius: new BorderRadius.only(
+                          topLeft: new Radius.circular(7.0),
+                          topRight: new Radius.circular(7.0)),
+                    ),
+                    child: Row(
+//                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {
+                              item = 0;
+                              setState(() {
 
-                      Container(
-                        decoration: new BoxDecoration(
-                          color: Color(0xffffffff),
-                          borderRadius:
-                              new BorderRadius.all(new Radius.circular(2.0)),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          '11',
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 12,
+                              });
+                            },
+                            child: Container(
+                              padding: EdgeInsets.fromLTRB(40, 15, 40, 15),
+                              decoration: new BoxDecoration(
+                                color: item == 0 ? ColorUtils.color_ffffff : null,
+                                borderRadius: new BorderRadius.only(
+                                    topLeft: new Radius.circular(7.0),
+                                    topRight: new Radius.circular(7.0)),
+                              ),
+                              child: Text(
+                                '今日疯抢',
+                                style: TextStyle(
+                                  color: item == 0 ? ColorUtils.color_333333 : ColorUtils.color_ffffff,
+                                  fontSize: item == 0 ? 20 : 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
-                        child: Text(
-                          ':',
-                          style: TextStyle(
-                            color: Colors.white,
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {
+                              item = 1;
+                              setState(() {
+
+                              });
+                            },
+                            child: Container(
+                              padding: EdgeInsets.fromLTRB(40, 15, 40, 15),
+                              alignment: Alignment(0, 0),
+                              decoration: new BoxDecoration(
+                                color:
+                                    item == 1 ? ColorUtils.color_ffffff : null,
+                                borderRadius: new BorderRadius.only(
+                                    topLeft: new Radius.circular(7.0),
+                                    topRight: new Radius.circular(7.0)),
+                              ),
+                              child: Text(
+                                '明日预告',
+                                style: TextStyle(
+                                  color: item == 1 ? ColorUtils.color_333333 : ColorUtils.color_ffffff,
+                                  fontSize: item == 1 ? 20 : 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                      Container(
-                        decoration: new BoxDecoration(
-                          color: Color(0xffffffff),
-                          borderRadius:
-                              new BorderRadius.all(new Radius.circular(2.0)),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          '11',
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
+                        )
+                      ],
+                    ),
+                  ),
+                  
                 ],
               ),
             ),
