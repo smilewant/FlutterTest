@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/copy/card/CardFlipPage.dart';
 import 'package:flutter_app/copy/page/list_page.dart';
 import 'package:provider/provider.dart';
 
@@ -44,7 +45,9 @@ class CountWidget extends StatelessWidget {
               child: new FlatButton(
                   onPressed: () {
                     counter.add();
-                    Navigator.push(context, new MaterialPageRoute(builder: (context) => new ListPage()));
+                    Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                          return counter.count % 2 == 0 ? new ListPage() : new CardFlipPage();
+                    }));
                   },
                   color: Colors.blue,
                   child: new Text("+")),
