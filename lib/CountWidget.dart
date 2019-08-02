@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/copy/card/CardFlipPage.dart';
+import 'package:flutter_app/copy/page/circle_progress_widget.dart';
 import 'package:flutter_app/copy/page/list_page.dart';
+import 'package:flutter_app/copy/page/progress.dart';
 import 'package:provider/provider.dart';
 
 class ProviderPage extends StatefulWidget {
@@ -16,14 +18,12 @@ class _ProviderState extends State<ProviderPage> {
     return MultiProvider(
       providers: [ChangeNotifierProvider(builder: (_) => ProviderModel())],
       child: Scaffold(
-        appBar: AppBar(
-            title: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-                var counter =  Provider.of<ProviderModel>(context);
-                return new Text("Provider ${counter.count.toString()}");
-              },
-            )
-        ),
+        appBar: AppBar(title: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            var counter = Provider.of<ProviderModel>(context);
+            return new Text("Provider ${counter.count.toString()}");
+          },
+        )),
         body: CountWidget(),
       ),
     );
@@ -38,20 +38,40 @@ class CountWidget extends StatelessWidget {
         return new Column(
           children: <Widget>[
             new Expanded(
-                child: new Center(
-              child: new Text(counter.count.toString()),
+                child: Stack(
+              children: <Widget>[
+                new Center(
+                  child: CircleProgressWidget(
+                      progress: Progress(
+                          backgroundColor: Colors.grey,
+                          value: counter.count / 10,
+                          radius: 100,
+                          completeText: "完成",
+                          color: Color(0xff46bcf6),
+                          strokeWidth: 4)),
+                ),
+              ],
             )),
             new Center(
-              child: new FlatButton(
-                  onPressed: () {
-                    counter.add();
-                    Navigator.push(context, new MaterialPageRoute(builder: (context) {
-                          return counter.count % 2 == 0 ? new ListPage() : new CardFlipPage();
-                    }));
-                  },
-                  color: Colors.blue,
-                  child: new Text("+")),
-            )
+                child: Stack(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.center,
+                  child: new FlatButton(
+                      onPressed: () {
+                        counter.add();
+                        Navigator.push(context,
+                            new MaterialPageRoute(builder: (context) {
+                          return counter.count % 2 == 0
+                              ? new ListPage()
+                              : new CardFlipPage();
+                        }));
+                      },
+                      color: Colors.blue,
+                      child: new Text("+")),
+                ),
+              ],
+            ))
           ],
         );
       },

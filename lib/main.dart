@@ -1,5 +1,6 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/CountWidget.dart';
 
 void main() => runApp(new MyApp());
 
@@ -97,32 +98,33 @@ class RandomWordsState extends State<RandomWords> {
   }
 
   void _pushSaved() {
-    Navigator.of(context).push(
-      new MaterialPageRoute(
-        builder: (context) {
-          final tiles = _saved.map(
-            (pair) {
-              return new ListTile(
-                title: new Text(
-                  pair.asPascalCase,
-                  style: _biggerFont,
-                ),
-              );
-            },
-          );
-          final divided = ListTile.divideTiles(
-            context: context,
-            tiles: tiles,
-          ).toList();
-          return new Scaffold(
-            appBar: new AppBar(
-              title: new Text("sub"),
-            ),
-            body: new ListView(children: divided),
-          );
-        },
-      ),
-    );
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ProviderPage()));
+//    Navigator.of(context).push(
+//      new MaterialPageRoute(
+//        builder: (context) {
+//          final tiles = _saved.map(
+//            (pair) {
+//              return new ListTile(
+//                title: new Text(
+//                  pair.asPascalCase,
+//                  style: _biggerFont,
+//                ),
+//              );
+//            },
+//          );
+//          final divided = ListTile.divideTiles(
+//            context: context,
+//            tiles: tiles,
+//          ).toList();
+//          return new Scaffold(
+//            appBar: new AppBar(
+//              title: new Text("sub"),
+//            ),
+//            body: new ListView(children: divided),
+//          );
+//        },
+//      ),
+//    );
   }
 }
 
