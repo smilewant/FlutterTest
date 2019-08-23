@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/copy/card/CardFlipPage.dart';
+import 'package:flutter_app/copy/card/dialog_show.dart';
 import 'package:flutter_app/copy/page/circle_progress_widget.dart';
 import 'package:flutter_app/copy/page/list_page.dart';
 import 'package:flutter_app/copy/page/progress.dart';
@@ -21,7 +22,8 @@ class _ProviderState extends State<ProviderPage> {
         appBar: AppBar(title: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
             var counter = Provider.of<ProviderModel>(context);
-            return new Text("Provider ${counter.count.toString()}");
+            print("${DateTime.now().year}");
+            return new Text("Provider ${counter._time}");
           },
         )),
         body: CountWidget(),
@@ -81,8 +83,10 @@ class CountWidget extends StatelessWidget {
 
 class ProviderModel extends ChangeNotifier {
   int _count = 0;
+  var _time = DateTime.now();
 
   int get count => _count;
+  int get time => _time.year;
 
   void add() {
     _count++;

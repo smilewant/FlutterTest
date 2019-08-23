@@ -55,7 +55,7 @@ class ProgressPainter extends CustomPainter {
   void drawArrow(Canvas canvas) {
     canvas.save();
     canvas.translate(_radius, _radius);
-    canvas.rotate((180 + _progress.value * 360) / 180 * pi);
+    canvas.rotate((  _progress.value * 360) / 180 * pi);
     var half = _radius / 2;
     var eg = _radius / 50;
     _arrowPath.moveTo(0, -half - eg * 2);
@@ -75,8 +75,8 @@ class ProgressPainter extends CustomPainter {
     canvas.translate(_radius, _radius);
     for (double i = 0; i < num; i++) {
       canvas.save();
-      double deg  = 360 / num * i;
-      canvas.rotate(deg/ 180 * pi);
+      double deg  = 360 / num * i - 180;
+      canvas.rotate(deg /180 * pi);
       _paint
       ..strokeWidth = _progress.strokeWidth / 2
       ..color = _progress.backgroundColor

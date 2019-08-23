@@ -78,13 +78,24 @@ class Page extends State<ListPage> {
                                 ),
                               );
                             } else {
-                              return Container(
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Text(
-                                    "上拉加载更多",
-                                    style: TextStyle(color: Colors.grey),
-                                  ));
+                              if (_words.length == 0){
+                                return Container(
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.all(16.0),
+                                    child: Text(
+                                      "正在加载...",
+                                      style: TextStyle(color: Colors.grey),
+                                    ));
+                              } else{
+                                return Container(
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.all(16.0),
+                                    child: Text(
+                                      "加载更多",
+                                      style: TextStyle(color: Colors.grey),
+                                    ));
+                              }
+
                             }
                           } else {
                             return Container(
